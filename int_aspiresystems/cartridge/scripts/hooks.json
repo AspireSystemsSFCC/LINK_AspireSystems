@@ -1,0 +1,16 @@
+{
+	"hooks": [
+		{
+			"name": "dw.ocapi.shop.product_search.modifyGETResponse",
+			"script": "./ModifyProductSearchResponse.js"
+		},
+		{
+			"name": "dw.ocapi.shop.basket.items.modifyPOSTResponse",
+			"script": "./ModifyAddItemBasketResponse.js"
+		},
+		{
+			"name": "dw.ocapi.shop.basket.modifyGETResponse",
+			"script": "./ModifyGetBasketResponse.js"
+		}
+	]
+}
