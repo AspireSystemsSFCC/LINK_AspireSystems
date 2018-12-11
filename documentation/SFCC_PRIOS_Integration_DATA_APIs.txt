@@ -1,5 +1,5 @@
 {
-  "_v":"15.4",
+  "_v":"18.8",
   "clients":
   [ 
     {
@@ -33,6 +33,12 @@
         {
           "resource_id":"/customer_search",
           "methods":["post"],
+          "read_attributes":"(**)",
+          "write_attributes":"(**)"
+        },
+        {
+          "resource_id":"/custom_objects/*/*",
+          "methods":["put"],
           "read_attributes":"(**)",
           "write_attributes":"(**)"
         },
@@ -87,6 +93,48 @@
         {
           "resource_id":"/sites/*/slot_search",
           "methods":["post"],
+          "read_attributes":"(**)",
+          "write_attributes":"(**)"
+        },
+        {
+          "resource_id":"/catalogs/*/categories",
+          "methods":["get"],
+          "read_attributes":"(**)",
+          "write_attributes":"(**)"
+        },
+       {
+          "resource_id":"/sites/*/coupons",
+          "methods":["get"],
+          "read_attributes":"(**)",
+          "write_attributes":"(**)"
+        },
+       {
+          "resource_id":"/sites/*/coupons/*/codes",
+          "methods":["get"],
+          "read_attributes":"(**)",
+          "write_attributes":"(**)"
+        },
+         {
+          "resource_id":"/sites/*/coupons/*",
+          "methods":["get","put","patch"],
+          "read_attributes":"(**)",
+          "write_attributes":"(**)"
+        },
+       {
+          "resource_id":"/sites/*/coupons/*/multiple_codes",
+          "methods":["post"],
+          "read_attributes":"(**)",
+          "write_attributes":"(**)"
+        },
+         {
+          "resource_id":"/sites/*/campaigns/*",
+          "methods":["put"],
+          "read_attributes":"(**)",
+          "write_attributes":"(**)"
+        },
+        {
+          "resource_id":"/sites/*/campaigns/*/coupons/*",
+          "methods":["put"],
           "read_attributes":"(**)",
           "write_attributes":"(**)"
         }

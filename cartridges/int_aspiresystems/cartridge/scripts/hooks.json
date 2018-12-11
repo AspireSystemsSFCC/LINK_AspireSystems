@@ -11,6 +11,14 @@
 		{
 			"name": "dw.ocapi.shop.basket.modifyGETResponse",
 			"script": "./ModifyGetBasketResponse.js"
-		}
-	]
+		},
+		{ 
+	        "name":"dw.ocapi.shop.customers.password_reset.afterPOST",
+	        "script" : "./AllowsResettingCustomersPassword.js"
+	    },
+		{ 
+	        "name":"dw.ocapi.shop.customers.password_reset.beforePOST",
+	        "script" : "./ValidationOfCustomerInfo.js"
+	    }
+   ]
 }

@@ -1,5 +1,5 @@
 {
-  "_v":"17.8",
+  "_v":"18.8",
   "clients":
   [
     {
@@ -40,6 +40,18 @@
         {
           "resource_id":"/baskets/*/items/*",
           "methods":["patch","delete"],
+          "read_attributes":"(**)",
+          "write_attributes":"(**)"
+        },
+        {
+          "resource_id":"/baskets/*/coupons",
+          "methods":["post"],
+          "read_attributes":"(**)",
+          "write_attributes":"(**)"
+        },
+        {
+          "resource_id":"/baskets/*/coupons/*",
+          "methods":["delete"],
           "read_attributes":"(**)",
           "write_attributes":"(**)"
         },
@@ -126,7 +138,26 @@
         },
         {
           "resource_id":"/customers/auth",
-          "methods":["delete","post"],
+          "methods":["delete","post","get"],
+          "read_attributes":"(**)",
+          "write_attributes":"(**)"
+        },
+       {
+          "resource_id":"/customers/password_reset",
+          "methods":["post"],
+          "read_attributes":"(**)",
+          "write_attributes":"(**)"
+     
+        },
+       {
+          "resource_id":"/customers/*/password_reset",
+          "methods":["post"],
+          "read_attributes":"(**)",
+          "write_attributes":"(**)"       
+        },
+        {
+          "resource_id":"/customers/*/auth",
+          "methods":["post"],
           "read_attributes":"(**)",
           "write_attributes":"(**)"
         },
@@ -193,7 +224,7 @@
         },
         {
           "resource_id":"/orders/*",
-          "methods":["get"],
+          "methods":["get","patch"],
           "read_attributes":"(**)",
           "write_attributes":"(**)"
         },
@@ -228,6 +259,31 @@
           "write_attributes":"(**)"
         },
         {
+          "resource_id":"/customers/*/product_lists",
+          "methods":["get","post"],
+          "read_attributes":"(**)",
+          "write_attributes":"(**)"
+        },
+        {
+          "resource_id":"/customers/*/product_lists/*",
+          "methods":["get","delete","patch"],
+          "read_attributes":"(**)",
+          "write_attributes":"(**)"
+        },
+          {
+          "resource_id":"/customers/*/product_lists/*/items",
+          "methods":["post","get"],
+          "read_attributes":"(**)",
+          "write_attributes":"(**)"
+         
+        },
+        {
+          "resource_id":"/customers/*/product_lists/*/items/*",
+          "methods":["delete","patch"],
+          "read_attributes":"(**)",
+          "write_attributes":"(**)"          
+        },
+        {
           "resource_id":"/product_lists",
           "methods":["get"],
           "read_attributes":"(**)",
@@ -243,13 +299,13 @@
           "resource_id":"/product_lists/*/items",
           "methods":["get","post"],
           "read_attributes":"(**)",
-          "write_attributes":"(**)"
+          "write_attributes":"(**)"         
         },
         {
           "resource_id":"/product_lists/*/items/*",
-          "methods":["patch","delete"],
+          "methods":["patch","delete","get"],
           "read_attributes":"(**)",
-          "write_attributes":"(**)"
+          "write_attributes":"(**)"          
         },
         {
           "resource_id":"/product_search",
@@ -263,7 +319,7 @@
           "methods":["get"],
           "read_attributes":"(**)",
           "write_attributes":"(**)",
-          "cache_time":60
+          "cache_time":600
         },
         {
           "resource_id":"/product_search/images",
@@ -299,6 +355,13 @@
           "cache_time":900
         },
         {
+          "resource_id":"/products/*/shipping_methods",
+          "methods":["get"],
+          "read_attributes":"(**)",
+          "write_attributes":"(**)",
+          "cache_time":900
+        },
+        {
           "resource_id":"/products/*/images",
           "methods":["get"],
           "read_attributes":"(**)",
@@ -314,7 +377,7 @@
             "product.inventory.ats.max_threshold" : "99",
             "product.inventory.stock_level.max_threshold" : "99"
           },
-          "cache_time":60
+          "cache_time":600
         },
         {
           "resource_id":"/products/*/prices",
@@ -381,7 +444,7 @@
           "read_attributes":"(**)",
           "write_attributes":"(**)",
           "cache_time":900
-        },
+        }, 
         {
           "resource_id":"/promotions",
           "methods":["get"],
@@ -428,7 +491,7 @@
           "read_attributes":"(**)",
           "write_attributes":"(**)",
           "cache_time":900
-        }
+        } 
       ]
     }
   ]
