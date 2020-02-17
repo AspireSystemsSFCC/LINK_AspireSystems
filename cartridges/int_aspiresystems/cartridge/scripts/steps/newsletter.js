@@ -44,6 +44,7 @@ function exportSubscribers(xsw,subscribers) {
 //function to export subscribers data to IMPEX folder in WebDAV server
 exports.newsletterSubscribers = function (parameters, stepExecution) {
 	var customObjectType = parameters.CustomObjectType;
+	var exportStatus = true;
 	try {
 		if (CustomObjectMgr.getAllCustomObjects(customObjectType).count === 0) {
 			Logger.getLogger('prios','prios').warn('No instances in the specified CustomObject');
@@ -56,21 +57,33 @@ exports.newsletterSubscribers = function (parameters, stepExecution) {
 			var file : File= new File(File.IMPEX + File.SEPARATOR + folderName + File.SEPARATOR + fileName + '_' + currentDate);
 			fileWriter = new FileWriter(file, 'UTF-8');
 			var xsw : XMLStreamWriter = new XMLStreamWriter(fileWriter);
-
-			if(xsw === null) {
+			if(xsw === null) {			
 				Logger.getLogger('prios','prios').error('Error while creating XML export file.');
+				exportStatus = false;
 			}
 			else {
 				var exportFile = exportSubscribers(xsw,subscribers);
 				if (exportFile === null) {
 					Logger.getLogger('prios','prios').error('Error while writing elements to the XML export file');
+					exportStatus = false;
 				}
 			}
-			fileWriter.close();		
+		
 		}
 	} catch (exception) {
 		Logger.getLogger('prios','prios').error	('Exception: ' + exception);
 		Logger.getLogger('prios','prios').error	('Please check BM configurations.');
+		exportStatus = false;
 	}
-	
+	finally {
+		if((typeof fileWriter != 'undefined') && !empty(fileWriter)) {
+			fileWriter.close();
+		}
+		if(exportStatus) {
+			return;
+		}
+		else {
+			return error;
+		}
+	}
 }
