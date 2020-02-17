@@ -1,0 +1,54 @@
+{
+  "step-types":
+  {
+    "script-module-step":
+    [
+      {
+        "@type-id":"custom.ExportPriosNewsLetterSubscribers",
+        "@supports-parallel-execution":"false",
+        "@supports-site-context":"true",
+        "@supports-organization-context":"true",
+        "description":"Exports custom object instances.",
+        "module":"int_aspiresystems/cartridge/scripts/steps/newsletter.js",
+        "function":"newsletterSubscribers",
+        "transactional":"true",
+        "parameters":
+        {
+          "parameter":
+          [
+            {
+              "@name":"FileName",
+              "@type":"string",
+              "@required":"true"
+            },
+            {
+              "@name":"FolderName",
+              "@type":"string",
+              "@required":"true",
+              "default-value": "src"
+            },
+            {
+              "@name":"CustomObjectType",
+              "@type":"string",
+              "@required":"true"
+            }
+          ]
+        },
+        "status-codes": 
+        {
+                  "status": 
+          [
+                      {
+                          "@code": "ERROR",
+                          "description": "Error while executing the job step. Please check the log for complete information."
+                      },
+                      {
+                          "@code": "OK",
+            			  "description": "Job step executed successfully."
+                      }
+                  ]
+              }
+      }
+    ]
+  }
+}
