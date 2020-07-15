@@ -2,23 +2,23 @@
 	"hooks": [
 		{
 			"name": "dw.ocapi.shop.product_search.modifyGETResponse",
-			"script": "./ModifyProductSearchResponse.js"
+			"script": "./modifyProductSearchResponse.js"
 		},
 		{
 			"name": "dw.ocapi.shop.basket.items.modifyPOSTResponse",
-			"script": "./ModifyAddItemBasketResponse.js"
+			"script": "./modifyAddItemBasketResponse.js"
 		},
 		{
 			"name": "dw.ocapi.shop.basket.modifyGETResponse",
-			"script": "./ModifyGetBasketResponse.js"
+			"script": "./modifyGetBasketResponse.js"
 		},
 		{ 
 	        "name":"dw.ocapi.shop.customers.password_reset.afterPOST",
-	        "script" : "./AllowsResettingCustomersPassword.js"
+	        "script" : "./allowsResettingCustomersPassword.js"
 	    },
 		{ 
 	        "name":"dw.ocapi.shop.customers.password_reset.beforePOST",
-	        "script" : "./ValidationOfCustomerInfo.js"
+	        "script" : "./validationOfCustomerInfo.js"
 	    }
    ]
 }

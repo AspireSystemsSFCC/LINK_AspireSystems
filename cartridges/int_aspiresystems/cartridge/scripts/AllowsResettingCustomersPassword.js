@@ -23,7 +23,7 @@ exports.afterPOST =function(customer,resetToken){
 	 variables.put("Customer",customer);
 	 variables.put("ResetPasswordToken",resetToken);
 	 variables.put("MailSubject","Please Reset Your Password");
-	 var template:Template = new dw.util.Template("mail/resetPasswordemail.isml");
+	 var template:Template = new dw.util.Template("mail/resetPasswordEmail.isml");
 	 var content:MimeEncodedText = template.render(variables);
 	 //mail will be sent to the customer whose email id will be specified in the request body
 	 var mail:Mail = new dw.net.Mail().setSubject("Password Reset").setContent(content).setFrom("noreply@salesforce.com").addTo(customer.profile.email);
