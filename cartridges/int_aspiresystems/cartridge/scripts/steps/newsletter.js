@@ -55,7 +55,7 @@ exports.newsletterSubscribers = function (parameters, stepExecution) {
 			var fileName = parameters.FileName;
 			var currentDate = new Date(); //To fetch current dateTimeStamp
 			var file : File= new File(File.IMPEX + File.SEPARATOR + folderName + File.SEPARATOR + fileName + '_' + currentDate);
-			fileWriter = new FileWriter(file, 'UTF-8');
+			var fileWriter = new FileWriter(file, 'UTF-8');
 			var xsw : XMLStreamWriter = new XMLStreamWriter(fileWriter);
 			if(xsw === null) {			
 				Logger.getLogger('prios','prios').error('Error while creating XML export file.');
